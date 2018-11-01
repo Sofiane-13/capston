@@ -19,16 +19,16 @@ module.exports.mqttInit = function() {
 };
 
 var handleMessage = function(topic, message) {
-	console.log("apibmqttstreet.js - processMessage() - topic = "+topic+" message = "+message);
+	//console.log("apibmqttstreet.js - processMessage() - topic = "+topic+" message = "+message);
     
     switch(topic) {
     	case 'street/server':
     		processMessage(message);
     		break;
     	
-    	// case 'myhome/server/will':
-    	// 	processLWTMessage(message);
-    	// 	break;
+    	case 'myhome/server/will':
+    		processLWTMessage(message);
+    		break;
     	
     	default: unhandledTopic(topic, message);
     }
@@ -41,7 +41,8 @@ var unhandledTopic = function(topic, message) {
 var getStreet = function(streetId, callback) {
 	console.log("apibmqttstreet.js - getStreet() - streetId = "+streetId);
 	
-	var model = Arrow.getModel("street");
+    var model = Arrow.getModel("street");
+
     model.query({streetId: streetId}, function(err, data){
   		if(err) {
   			console.log('apibmqttstreet.js - getStreet() - error accessing iot street database, err = '+err);
@@ -71,36 +72,31 @@ var getStreet = function(streetId, callback) {
 // 	});
 // };
 
+
+// ajouter un nouvelle valeur
 var processMessage = function(message, callback) {
 	console.log("apibmqttstreet.js - processMessage() - message = "+message);
 	
-	message = JSON.parse(message);
+    message = JSON.parse(message);
+    console.log("apibmqttstreet.js - getStreet() - streetId = "+message.streetId);
 	
-	getStreet(message.streetId, function(data){
-		if(data) {
-			console.log('apibmqttstreet.js - processMessage() - data.length = '+data.length);
-  			console.log('apibmqttstreet.js - processMessage() - data = '+JSON.stringify(data));
-			if(data.length > 1) {
-  				console.log('apibmqttstreet.js - processMessage() - Number of matching records greater than 1. Multiple streets with same streetId present in street DB');
-  			} else {
-  				if(data.length === 1) {
-  					console.log('apibmqttstreet.js - processMessage() - Number of matching records equals to 1');
-			        data[0].isConnected = true;
-                    data[0].north = message.north.toString();
-			        data[0].est = message.est.toString();
-			        data[0].ouest = message.ouest.toString();
-                    data[0].sud = message.sud.toString();
-			        data[0].date = message.date.toString();
-                    
-                    
-			        data[0].update();
-			        console.log('apibmqttstreet.js - processMessage() - Record updated!!!');
-  				} else {
-  					console.log('apibmqttstreet.js - processMessage() - No matching records found, create new street record');
-  				}
-  			}
-		} else {
-			console.log('apibmqttstreet.js - processMessage() - error getting iot street');
-		}
-	});
+    var model = Arrow.getModel("street");
+    var streetObject = {
+        streetId : message.streetId,
+        north : message.north,
+        est : message.est,
+        ouest : message.ouest,
+        sud : message.sud,
+        date : message.date
+    };
+	model.create(streetObject,  function(err, instance){
+        if(err) {
+            console.log("Error creating new street");
+        } else {
+            instance.set(streetObject);
+            // createVacation(instance.id, req.body.count);
+        }
+    });
+
+
 };
