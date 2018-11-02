@@ -52,7 +52,7 @@ Part 1 : https://www.appcelerator.com/blog/2018/03/api-builder-and-mqtt-for-iot-
 
 Part 2 : https://www.appcelerator.com/blog/2018/06/api-builder-mqtt-iot-part-2/
 
-## useful information :
+## Useful information :
 
 ### Broker :
 
