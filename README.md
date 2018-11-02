@@ -46,3 +46,7 @@ To run API Builder, you need to install Node.js and Axway Appcelerator CLI. If y
 
  ng serve
   ```
+## References :
+
+Part 1 : https://www.appcelerator.com/blog/2018/03/api-builder-and-mqtt-for-iot-part-1/
+Part 2 : https://www.appcelerator.com/blog/2018/06/api-builder-mqtt-iot-part-2/
