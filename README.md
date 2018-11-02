@@ -1,6 +1,6 @@
-# capston
+# Capston project :
 
-# Install API Builder :
+## Install API Builder :
 
 To run API Builder, you need to install Node.js and Axway Appcelerator CLI. If you are using Axway Appcelerator Studio 4.0 or a later version, you already have Appcelerator CLI automatically installed and can go to step 4.
 
@@ -18,7 +18,7 @@ To run API Builder, you need to install Node.js and Axway Appcelerator CLI. If y
  
  4. Create your count here : https://www.appcelerator.com/
  
- # Run your API
+ ## Run your API
  
   ```
   cd capstone
@@ -28,7 +28,7 @@ To run API Builder, you need to install Node.js and Axway Appcelerator CLI. If y
   appc run
    ```
  
- # Run IOT emulateur app :
+ ## Run IOT emulateur app :
  ```
  cd arduino
  
@@ -37,7 +37,7 @@ To run API Builder, you need to install Node.js and Axway Appcelerator CLI. If y
  node index.js
   ```
  
- # Run angular client :
+ ## Run angular client :
  
   ```
  cd clientCapston
