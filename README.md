@@ -16,7 +16,7 @@ To run API Builder, you need to install Node.js and Axway Appcelerator CLI. If y
  appc setup
  ```
  
- 4. Create your count heer : https://www.appcelerator.com/
+ 4. Create your count here : https://www.appcelerator.com/
  
  # Run your API
  
