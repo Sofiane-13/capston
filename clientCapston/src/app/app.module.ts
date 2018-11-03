@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { TraficLightComponent } from './trafic-light/trafic-light.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TraficLightComponent
   ],
   imports: [
     BrowserModule,

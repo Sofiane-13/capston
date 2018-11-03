@@ -5,8 +5,43 @@
   <div class="header">
       <h1 class="title">Capston Client</h1>
   </div>
-  <div class="content">
-yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+  <div class="content" style="background-color: palegoldenrod;">
+  <div class="streetID" style="background-color: green;">
+46464664664
+  </div>
+  <div class="actualiser" style="background-color: yellow;">
+      <button (click)="getData()">Get data</button>
+  </div>
+  <div class="date" style="background-color: red;">
+16/08/1992
+  </div>
+  <div class="tlN" style="background-color: blue;" *ngIf="nord">
+      <app-trafic-light [couleur]="this.data.streets[0].north"></app-trafic-light>
+
+  </div>
+  <div class="tlS" style="background-color:pink;" *ngIf="sud">
+      <app-trafic-light [couleur]="sud"></app-trafic-light>
+  </div>
+  <div class="tlE" style="background-color: orange;" *ngIf="est">
+      <app-trafic-light [couleur]="est"></app-trafic-light>
+
+  </div>
+  <div class="tlO" style="background-color: white;" *ngIf="oest">
+      <app-trafic-light [couleur]="oest"></app-trafic-light>
+  </div>
   </div>
 </div>
 <router-outlet></router-outlet>
+ <!-- <app-trafic-light></app-trafic-light>-->
+<!-- <button (click)="getData()">Get data</button> -->
+<!-- <div *ngFor="let street of streets">
+    {{street.date}}
+    {{street.id}}
+    {{street.streetId}}
+    {{street.north}}
+    {{street.sud}}
+    {{street.est}}
+    {{street.ouest}}
+
+
+  </div> -->
