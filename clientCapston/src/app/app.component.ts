@@ -22,7 +22,7 @@ export class AppComponent {
 
   constructor(private street: GetStatesStreetService  ) {
 
-    const secondsCounter = interval(1000);
+    const secondsCounter = interval(3000);
     secondsCounter.subscribe(n =>
       this.getData());
     // console.log(this.nord);
@@ -37,10 +37,15 @@ getData() {
     this.sud = this.streets[0].sud;
     this.est = this.streets[0].est;
     this.oest = this.streets[0].ouest;
+    // console.log('-------------------------- De but app component----------------------------------');
+    // console.log('nord', this.est);
+    // console.log('sud', this.est);
+    // console.log('est', this.est);
+    // console.log('oest', this.est);
+    // console.log('-------------------------- Fin but app component----------------------------------');
+
     return this.data;
-   // this.sud = this.streets[0].;
-    console.log('je suis le nord :', this.nord);
-    console.log(this.data.streets);
+
   },
   error => { console.log(error, 'error');
 });

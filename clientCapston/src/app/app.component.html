@@ -16,7 +16,7 @@
 16/08/1992
   </div>
   <div class="tlN" style="background-color: blue;" *ngIf="nord">
-      <app-trafic-light [couleur]="this.data.streets[0].north"></app-trafic-light>
+      <app-trafic-light [couleur]="nord"></app-trafic-light>
 
   </div>
   <div class="tlS" style="background-color:pink;" *ngIf="sud">
@@ -32,16 +32,4 @@
   </div>
 </div>
 <router-outlet></router-outlet>
- <!-- <app-trafic-light></app-trafic-light>-->
-<!-- <button (click)="getData()">Get data</button> -->
-<!-- <div *ngFor="let street of streets">
-    {{street.date}}
-    {{street.id}}
-    {{street.streetId}}
-    {{street.north}}
-    {{street.sud}}
-    {{street.est}}
-    {{street.ouest}}
 
-
-  </div> -->
