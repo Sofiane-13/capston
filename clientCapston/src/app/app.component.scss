@@ -1,12 +1,14 @@
 .title {
-color: red;
+  color: black;
 }
+
 .body {
   display: grid;
   grid-template-rows: auto 2fr;
   width: 100%;
   height: 100%;
 }
+
 .header {
   display: grid;
   font-family: Arial, Helvetica, sans-serif;
@@ -23,10 +25,12 @@ color: red;
   margin-top: 20px;
   padding: 10px;
 }
+
 .streetID {
   display: grid;
   justify-items: center;
   padding: 20px;
+  background-color: blue;
   grid-area: 1 / 1 / span 1 / span 1;
 }
 
@@ -41,6 +45,7 @@ color: red;
   display: grid;
   padding: 20px;
   justify-items: center;
+  background-color: blue;
   grid-area: 1 / 4 / span 1 / span 1;
 }
 
@@ -48,20 +53,51 @@ color: red;
   display: grid;
   justify-items: center;
   grid-area: 2 / 2 / span 1 / span 2;
+  border-left-width: 10px;
+  border-left-color: black;
+  background-image: url("../assets/route2.jpg");
+  background-size: 550px;
 }
 
 .tlS {
   display: grid;
   justify-items: center;
   grid-area: 4 / 2 / span 1 / span 2;
+  background-image: url("../assets/route2.jpg");
+  background-size: 550px;
 }
 
 .tlE {
+  background-image: url("https://static.alipson.fr/faller.380/faller-modelisme-accessoires-de-decor-h0--chaussees--feuille-route-souple.59501-1.jpg");
+
   grid-area: 3 / 4 / span 1 / span 1;
 }
 
 .tlO {
   display: grid;
   justify-items: right;
+  background-image: url("https://static.alipson.fr/faller.380/faller-modelisme-accessoires-de-decor-h0--chaussees--feuille-route-souple.59501-1.jpg");
+
   grid-area: 3 / 1 / span 1 / span 1;
+
+}
+
+.rondPoint {
+
+  background-image: url("../assets/rond-point2.jpg");
+  background-size: 30%;
+  background-position: center;
+  background-repeat: no-repeat;
+  // background-color: black;
+  grid-area: 3 / 2 / span 1 / span 2;
+}
+
+.table {
+  padding: 10px;
+}
+
+.historiqueTitle {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  padding: 20px;
 }

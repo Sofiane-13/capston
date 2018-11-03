@@ -3,33 +3,65 @@
 <div class="body">
 
   <div class="header">
-      <h1 class="title">Capston Client</h1>
+    <h1 class="title">Capston Client</h1>
   </div>
-  <div class="content" style="background-color: palegoldenrod;">
-  <div class="streetID" style="background-color: green;">
-46464664664
-  </div>
-  <div class="actualiser" style="background-color: yellow;">
-      <button (click)="getData()">Get data</button>
-  </div>
-  <div class="date" style="background-color: red;">
-16/08/1992
-  </div>
-  <div class="tlN" style="background-color: blue;" *ngIf="nord">
+  <div class="content">
+    <div class="streetID">
+      MAC ID : {{streetId}}
+    </div>
+    <div class="actualiser">
+
+    </div>
+    <div class="date">
+      Date : {{date}}
+    </div>
+    <div class="tlN" *ngIf="nord">
       <app-trafic-light [couleur]="nord"></app-trafic-light>
 
-  </div>
-  <div class="tlS" style="background-color:pink;" *ngIf="sud">
+    </div>
+    <div class="tlS" *ngIf="sud">
       <app-trafic-light [couleur]="sud"></app-trafic-light>
-  </div>
-  <div class="tlE" style="background-color: orange;" *ngIf="est">
+    </div>
+    <div class="tlE" *ngIf="est">
       <app-trafic-light [couleur]="est"></app-trafic-light>
 
-  </div>
-  <div class="tlO" style="background-color: white;" *ngIf="oest">
+    </div>
+    <div class="tlO" *ngIf="oest">
       <app-trafic-light [couleur]="oest"></app-trafic-light>
-  </div>
-  </div>
-</div>
-<router-outlet></router-outlet>
+    </div>
+    <div class="rondPoint">
 
+    </div>
+  </div>
+  <H1 class="historiqueTitle">
+    Historique :
+  </H1>
+  <div class="matable">
+  <table class="table">
+      <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Nord</th>
+            <th scope="col">Sud</th>
+            <th scope="col">est</th>
+            <th scope="col">ouest</th>
+
+          </tr>
+        </thead>
+        <tbody>
+
+      <tr *ngFor="let street of streets |  paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
+        <td> {{street.date}} </td>
+        <td> {{street.north}} </td>
+        <td> {{street.sud}}</td>
+        <td> {{street.est}} </td>
+        <td> {{street.ouest}} </td>
+
+      </tr>
+      </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

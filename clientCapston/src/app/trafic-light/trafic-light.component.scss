@@ -8,22 +8,16 @@
   border: solid 5px #333;
   margin-bottom: 50px;
 }
+
 .lights {
   display: grid;
   grid-auto-rows: 1fr 1fr 1fr;
 
 }
 
-// .trafficlight:before {
-//   background: #222;
-//   background-image: radial-gradient(#444, #000);
-//   content: "";
-//   width: 100px;
-//   height: 215px;
-//   margin: 0 auto;
-//   position: absolute;
-//   top: -30px;
-//   margin-left: 0px;
-//   border-radius: 50%;
-//   z-index: -1;
-// }
+.ampoul {
+  height: 50px;
+  border-radius: 20px;
+  width: 100px;
+  margin: 5px;
+}

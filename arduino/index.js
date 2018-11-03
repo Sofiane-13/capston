@@ -69,6 +69,9 @@ require('getmac').getMac(function(err, macAddress){
 	}
 	setInterval(function(){
 	datetime = new Date();
+
+	
+    var twoHoursLater = new Date(datetime.getTime() + (1*1000*60*60));
 	handlingEtat();
 
 	message = JSON.stringify({
@@ -77,7 +80,7 @@ require('getmac').getMac(function(err, macAddress){
 	est : est,
 	ouest : ouest,
 	sud : sud,
-	date : datetime
+	date : twoHoursLater
 	});
 	client.publish('street/server', message);
 	}, 15000);
